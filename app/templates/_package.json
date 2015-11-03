@@ -1,0 +1,40 @@
+{
+  "name": "<%= moduleName %>",
+  "version": "1.0.0",
+  "description": "<%= dequote(moduleDesc) %>",
+  "main": "index.js",
+  "scripts": {
+    "test": "node_modules/.bin/grunt ci"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/<%= githubName %>/<%= moduleName %>"
+  },
+  "keywords": <%= JSON.stringify(keywords) %> ,
+  "author": "<%= dequote(author) %>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/<%= githubName %>/<%= moduleName %>/issues"
+  },
+  "dependencies": {},
+  "devDependencies": { <%
+    switch (assertionLibrary) {
+      case 'expect.js':
+        print('    "expect.js": "~0.3.0",');
+        break;
+
+      case 'chai':
+        print('    "chai": "~1.10.0",');
+        break;
+
+      default:
+        break;
+    } %>
+    "grunt-contrib-watch": "~0.5.3",
+    "grunt-bump": "^0.6.0",
+    "grunt": "~0.4.1",
+    "grunt-mocha-cli": "~1.1.0",
+    "grunt-complexity": "~0.1.3",
+    "grunt-cli": "~0.1.9"
+  }
+}
