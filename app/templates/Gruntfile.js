@@ -1,4 +1,6 @@
 // Generated on <%= (new Date).toISOString().split('T')[0] %> using <%= pkg.name %> <%= pkg.version %>
+var LoadGruntTasks = require('load-grunt-tasks')
+
 module.exports = function (grunt) {
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
@@ -18,10 +20,10 @@ module.exports = function (grunt) {
         files: ['package.json'],
         updateConfigs: [],
         commit: true,
-        commitMessage: 'Release v%VERSION%',
-        commitFiles: ['package.json'],
+        commitMessage: 'Release %VERSION%',
+        commitFiles: ['-a'],
         createTag: true,
-        tagName: 'v%VERSION%',
+        tagName: '%VERSION%',
         tagMessage: 'Version %VERSION%',
         push: true,
         pushTo: 'upstream',
@@ -51,10 +53,7 @@ module.exports = function (grunt) {
     }
   })
 
-  grunt.loadNpmTasks('grunt-complexity')
-  grunt.loadNpmTasks('grunt-contrib-watch')
-  grunt.loadNpmTasks('grunt-bump')
-  grunt.loadNpmTasks('grunt-mocha-cli')
+  LoadGruntTasks(grunt)
   grunt.registerTask('test', ['complexity', 'mochacli', 'watch'])
   grunt.registerTask('ci', ['complexity', 'mochacli'])
   grunt.registerTask('default', ['test'])

@@ -1,14 +1,14 @@
 'use strict'
-var util = require('util'),
-  path = require('path'),
-  yeoman = require('yeoman-generator'),
-  gitconfig = require('git-config')
+var util = require('util')
+var path = require('path')
+var yeoman = require('yeoman-generator')
+var gitconfig = require('git-config')
 
 var NodejsGenerator = module.exports = function NodejsGenerator (args, options, config) {
   yeoman.generators.Base.apply(this, arguments)
 
   this.on('end', function () {
-    this.installDependencies({ skipInstall: options['skip-install']})
+    this.installDependencies({skipInstall: options['skip-install']})
   })
 
   this.pkg = JSON.parse(this.readFileAsString(path.join(__dirname, '../package.json')))
@@ -54,13 +54,6 @@ NodejsGenerator.prototype.askFor = function askFor () {
       }
     },
     {
-      type: 'list',
-      name: 'assertionLibrary',
-      message: 'Assertion Library',
-      choices: ['expect.js', 'chai', 'none'],
-      default: 'expect.js'
-    },
-    {
       type: 'input',
       name: 'githubName',
       message: 'Your github username',
@@ -83,7 +76,6 @@ NodejsGenerator.prototype.askFor = function askFor () {
     this.githubName = props.githubName
     this.author = props.author
     this.copyrightName = props.author.replace(/<[^>]*?>/gm, '').trim()
-    this.assertionLibrary = props.assertionLibrary
 
     this.dequote = function (str) {
       return str.replace(/\"/gm, '\\"')

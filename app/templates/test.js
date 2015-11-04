@@ -1,16 +1,5 @@
-var expect = require('<%
-    switch (assertionLibrary) {
-      case 'chai':
-        print ("chai').expect");
-        break;
-
-      case 'expect.js':
-      default:
-        print ("expect.js')");
-        break;
-    }
-%>,
-    <%= moduleVarName %> = require('..');
+var expect = require('chai')
+var <%= moduleVarName %> = require('..')
 
 describe('<%= moduleName %>', function() {
   it('should say hello', function(done) {
