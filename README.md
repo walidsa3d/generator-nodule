@@ -2,7 +2,7 @@
 
 A node.js module scaffolding generator for [Yeoman](http://yeoman.io).
 
-[![Build Status](https://secure.travis-ci.org/walidsa3d/generator-nodule.png?branch=master)](https://travis-ci.org/eugeneware/generator-nodejs)
+[![Build Status](https://secure.travis-ci.org/walidsa3d/generator-nodule.png?branch=master)](https://travis-ci.org/walidsa3d/generator-nodule)
 
 ### Installation
 
