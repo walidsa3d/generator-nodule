@@ -30,5 +30,5 @@ This generator will install the following files:
 * LICENSE - MIT license initialized with your details.
 * README.md - Initialized with your details and travis-ci badges.
 * index.js - dummy javascript file
-* test/index.js - unit tests using moch and chai
+* test/index.js - unit tests using mocha and chai
 
